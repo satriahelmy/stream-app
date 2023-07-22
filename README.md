@@ -7,6 +7,14 @@ Ini adalah aplikasi yang dikembangkan untuk aplikasi streaming yang menyediakan 
 - PHP 8
 - MySQL
 
+## Cara menjalankan program
+- clone repository ini
+- copy .env.example dan rename menjadi .env
+- buat database di mysql
+- setting koneksi database pada file .env sesuai dengan nama database yang telah dibuat
+- pada cmd, eksekusi `php artisan migrate`
+- pada cmd, eksekusi `php artisan db:seed`
+
 ## Penyusun
 
 - Helmy Satria Martha Putra
