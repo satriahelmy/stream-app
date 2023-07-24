@@ -33,16 +33,16 @@
           </div>
           <div class="form-group">
             <label for="trailer">Trailer</label>
-            <input type="text" class="form-control" id="trailer" name="trailer" placeholder="Video url">
+            <input type="text" class="form-control" id="trailer" name="trailer" value="{{old('trailer')}}" placeholder="Video url">
           </div>
           <div class="form-group">
             <label for="duration">Duration</label>
-            <input type="text" class="form-control" id="duration" name="duration" placeholder="1h 39m">
+            <input type="text" class="form-control" id="duration" name="duration" placeholder="1h 39m" value="{{old('duration')}}">
           </div>
           <div class="form-group">
             <label>Date:</label>
             <div class="input-group date" id="release-date" data-target-input="nearest">
-              <input type="text" name="release_date" class="form-control datetimepicker-input" data-target="#release-date"/>
+              <input type="text" name="release_date" value="{{old('release_date')}}" class="form-control datetimepicker-input" data-target="#release-date"/>
               <div class="input-group-append" data-target="#release-date" data-toggle="datetimepicker">
                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
               </div>
@@ -50,11 +50,11 @@
           </div>
           <div class="form-group">
             <label for="short-about">Casts</label>
-            <input type="text" class="form-control" id="short-about" name="casts" placeholder="Jackie Chan">
+            <input type="text" class="form-control" id="short-about" name="casts" value="{{old('casts')}}" placeholder="Jackie Chan">
           </div>
           <div class="form-group">
             <label for="short-about">Categories</label>
-            <input type="text" class="form-control" id="short-about" name="categories" placeholder="Action, Fantasy">
+            <input type="text" class="form-control" id="short-about" name="categories" value="{{old('categories')}}" placeholder="Action, Fantasy">
           </div>
           <div class="form-group">
             <label for="small-thumbnail">Small Thumbnail</label>
@@ -66,17 +66,17 @@
           </div>
           <div class="form-group">
             <label for="short-about">Short About</label>
-            <input type="text" class="form-control" id="short-about" name="short_about" placeholder="Awesome Movie">
+            <input type="text" class="form-control" id="short-about" name="short_about" value="{{old('short_about')}}" placeholder="Awesome Movie">
           </div>
           <div class="form-group">
             <label for="short-about">About</label>
-            <input type="text" class="form-control" id="about" name="about" placeholder="Awesome Movie">
+            <input type="text" class="form-control" id="about" name="about" placeholder="Awesome Movie" value="{{old('about')}}">
           </div>
           <div class="form-group">
             <label>Featured</label>
             <select class="custom-select" name="featured">
-              <option value="0">No</option>
-              <option value="1">Yes</option>
+              <option value="0" {{ old('featured') === '0'?"selected":"" }}>No</option>
+              <option value="1" {{ old('featured') === '1'?"selected":"" }}>Yes</option>
             </select>
           </div>
         </div>
@@ -89,4 +89,12 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('js')
+  <script>
+    $('#release-date').datetimepicker({
+      format:'YYYY-MM-DD'
+    })
+  </script>
 @endsection
