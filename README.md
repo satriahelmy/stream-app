@@ -14,6 +14,7 @@ Ini adalah aplikasi yang dikembangkan untuk aplikasi streaming yang menyediakan 
 - setting koneksi database pada file .env sesuai dengan nama database yang telah dibuat
 - pada cmd, eksekusi `php artisan migrate`
 - pada cmd, eksekusi `php artisan db:seed`
+- jalankan `composer install`
 - untuk menjalankan, eksekusi `php artisan serve`
 
 ## Penyusun
