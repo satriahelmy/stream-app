@@ -48,9 +48,10 @@ Route::group(['prefix' => 'admin', 'middleware'=>['admin.auth']], function()
     });
 });
 
-Route::group(['prefix' => 'member'], function(){
+Route::group(['prefix' => 'member','middleware'=>['auth']], function(){
     Route::get('/',[DashboardController::class,'index'])->name('member.dashboard');
     Route::get('/movie/{id}',[MemberMovieController::class,'show'])->name('member.movie.detail');
+    Route::get('/logout',[MemberLoginController::class,'logout'])->name('member.logout');
 });
 
 Route::get('/register',[RegisterController::class,'index'])->name('member.register');
