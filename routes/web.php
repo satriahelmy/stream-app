@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
+use App\Http\Controllers\Member\DashboardController;
+use App\Http\Controllers\Member\MovieController as MemberMovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +46,11 @@ Route::group(['prefix' => 'admin', 'middleware'=>['admin.auth']], function()
         Route::put('/update/{id}',[MovieController::class, 'update'])->name('admin.movie.update');
         Route::delete('/destroy/{id}',[MovieController::class, 'destroy'])->name('admin.movie.destroy');
     });
+});
+
+Route::group(['prefix' => 'member'], function(){
+    Route::get('/',[DashboardController::class,'index'])->name('member.dashboard');
+    Route::get('/movie/{id}',[MemberMovieController::class,'show'])->name('member.movie.detail');
 });
 
 Route::get('/register',[RegisterController::class,'index'])->name('member.register');
